@@ -100,12 +100,12 @@ Yume Shoka = zhu</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfw2t96j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciszlczyj20zk0m816d.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
         </ul>
       </div>
     </header>
@@ -149,7 +149,8 @@ Yume Shoka = zhu</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>layout: false<br><!DOCTYPE html></p>
+    layout: false 
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -163,12 +164,48 @@ Yume Shoka = zhu</title>
     box-sizing: border-box;
   }
 
-<p>  html,<br>  body {<br>    height: 100%;<br>    padding: 0;<br>    margin: 0;<br>    background: #000;<br>  }</p>
-<p>  .tip {<br>    position: fixed;<br>    top: 10px;<br>    right: 10px;<br>    color: #fff;<br>    font-size: 20px;<br>  }</p>
-<p>  .aa {<br>    position: fixed;<br>    left: 50%;<br>    bottom: 10px;<br>    color: #ccc;<br>  }</p>
-<p>  .container {<br>    width: 100%;<br>    height: 100%;<br>  }</p>
-<p>  &#x2F;* .ranImg {<br>    position: fixed;<br>    display: none;<br>    width: 10%;<br>  } *&#x2F;</p>
-<p>  canvas {<br>    z-index: 99;<br>    position: absolute;<br>    width: 100%;<br>    height: 100%;<br>  }<br></style></p>
+  html,
+  body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #000;
+  }
+
+  .tip {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .aa {
+    position: fixed;
+    left: 50%;
+    bottom: 10px;
+    color: #ccc;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* .ranImg {
+    position: fixed;
+    display: none;
+    width: 10%;
+  } */
+
+  canvas {
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
 <body>
   <!-- tip -->
   <span class="tip">我爱伍雪仪！</span>
@@ -187,184 +224,386 @@ Yume Shoka = zhu</title>
 </html>
 <script>
 
-<p>  let imgSrc1 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL2ExLnFwaWMuY24vcHNjPy9WMTRaeHpscjNzaURROC8wNVJsV2w4Z3NUT0gqWjE3TXRDQnpORG9QemNvQWZuY0tRQmRWQW1zcDgwdDBvSVl0VEhUZ1dxUUZvQjdvQXhUWnVXRWtJZXRoNjBnNkVYWGNQZjc1ZyEhL20mZWs9MSZrcD0xJnB0PTAmYm89MEFKV0E5QUNWZ01XQURBISZ0bD0xJnRtPTE2NjgwNjcyMDAmZGlzX3Q9MTY2ODA2ODU0MCZkaXNfaz0xZThlNDdjMjQzYzI3YzAyYmQ5ZTE3MzJjNmI2ZTQ3MiZzY2U9MC0xMi0xMiZyZj0wLTE4">http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzNDoPzcoAfncKQBdVAmsp80t0oIYtTHTgWqQFoB7oAxTZuWEkIeth60g6EXXcPf75g!!/m&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=0AJWA9ACVgMWADA!&amp;tl=1&amp;tm=1668067200&amp;dis_t=1668068540&amp;dis_k=1e8e47c243c27c02bd9e1732c6b6e472&amp;sce=0-12-12&amp;rf=0-18</span>‘<br>  let imgSrc2 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL2ExLnFwaWMuY24vcHNjPy9WMTRaeHpscjNzaURROC8wNVJsV2w4Z3NUT0gqWjE3TXRDQnpINHRyTXZvanplZ0VielprNHdkclUqZG12RGpjVVNaNTlZT0gzeDJ3VE42ZjBTWVhXRlBuakJlbEp2blhkbE5sdyEhL20mZWs9MSZrcD0xJnB0PTAmYm89T0FTZ0JUZ0VvQVVXQURBISZ0bD0xJnRtPTE2NjgwNjcyMDAmZGlzX3Q9MTY2ODA2ODU0MCZkaXNfaz02NzViMjMzMGM1YmU0ZjdhMWM1MmViM2E2NzI1NmFhYSZzY2U9MC0xMi0xMiZyZj0wLTE4">http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzH4trMvojzegEbzZk4wdrU*dmvDjcUSZ59YOH3x2wTN6f0SYXWFPnjBelJvnXdlNlw!!/m&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=OASgBTgEoAUWADA!&amp;tl=1&amp;tm=1668067200&amp;dis_t=1668068540&amp;dis_k=675b2330c5be4f7a1c52eb3a67256aaa&amp;sce=0-12-12&amp;rf=0-18</span>‘<br>  let imgSrc3 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL2ExLnFwaWMuY24vcHNjPy9WMTRaeHpscjNzaURROC8wNVJsV2w4Z3NUT0gqWjE3TXRDQnpINHRyTXZvanplZ0VielprNHdkclUqZG12RGpjVVNaNTlZT0gzeDJ3VE42ZjBTWVhXRlBuakJlbEp2blhkbE5sdyEhL20mZWs9MSZrcD0xJnB0PTAmYm89T0FTZ0JUZ0VvQVVXQURBISZ0bD0xJnRtPTE2NjgwNjcyMDAmZGlzX3Q9MTY2ODA2ODU0MCZkaXNfaz02NzViMjMzMGM1YmU0ZjdhMWM1MmViM2E2NzI1NmFhYSZzY2U9MC0xMi0xMiZyZj0wLTE4">http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzH4trMvojzegEbzZk4wdrU*dmvDjcUSZ59YOH3x2wTN6f0SYXWFPnjBelJvnXdlNlw!!/m&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=OASgBTgEoAUWADA!&amp;tl=1&amp;tm=1668067200&amp;dis_t=1668068540&amp;dis_k=675b2330c5be4f7a1c52eb3a67256aaa&amp;sce=0-12-12&amp;rf=0-18</span>‘<br>  let imgSrc4 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL2ExLnFwaWMuY24vcHNjPy9WMTRaeHpscjNzaURROC8wNVJsV2w4Z3NUT0gqWjE3TXRDQnpMbnBxU3ZaU2tvemsybFZvdnZoWndlNWVvU2lrYlp4VnJJNFNrUkd4OVUzQUdva2JsVHNCYkVxN0RPdVhMdTBYUSEhL20mZWs9MSZrcD0xJnB0PTAmYm89b0FVNEJLQUZPQVFXQURBISZ0bD0xJnRtPTE2NjgwNjcyMDAmZGlzX3Q9MTY2ODA2ODU0MCZkaXNfaz03ZmViOTcwNjBlNjZmMzdkYjkwMGVjOTZkNDQyZmE3OSZzY2U9MC0xMi0xMiZyZj0wLTE4">http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzLnpqSvZSkozk2lVovvhZwe5eoSikbZxVrI4SkRGx9U3AGokblTsBbEq7DOuXLu0XQ!!/m&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=oAU4BKAFOAQWADA!&amp;tl=1&amp;tm=1668067200&amp;dis_t=1668068540&amp;dis_k=7feb97060e66f37db900ec96d442fa79&amp;sce=0-12-12&amp;rf=0-18</span>‘<br>  let imgSrc5 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL2ExLnFwaWMuY24vcHNjPy9WMTRaeHpscjNzaURROC8wNVJsV2w4Z3NUT0gqWjE3TXRDQnpMbnBxU3ZaU2tvemsybFZvdnZoWndlNWVvU2lrYlp4VnJJNFNrUkd4OVUzQUdva2JsVHNCYkVxN0RPdVhMdTBYUSEhL20mZWs9MSZrcD0xJnB0PTAmYm89b0FVNEJLQUZPQVFXQURBISZ0bD0xJnRtPTE2NjgwNjcyMDAmZGlzX3Q9MTY2ODA2ODU0MCZkaXNfaz03ZmViOTcwNjBlNjZmMzdkYjkwMGVjOTZkNDQyZmE3OSZzY2U9MC0xMi0xMiZyZj0wLTE4">http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzLnpqSvZSkozk2lVovvhZwe5eoSikbZxVrI4SkRGx9U3AGokblTsBbEq7DOuXLu0XQ!!/m&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=oAU4BKAFOAQWADA!&amp;tl=1&amp;tm=1668067200&amp;dis_t=1668068540&amp;dis_k=7feb97060e66f37db900ec96d442fa79&amp;sce=0-12-12&amp;rf=0-18</span>‘<br>  let imgSrc6 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL3IucGhvdG8uc3RvcmUucXEuY29tL3BzYz8vVjE0Wnh6bHIzc2lEUTgvMDVSbFdsOGdzVE9IKloxN010Q0J6RzlNN2dVZDRBbkVLeVVtQzhBd1BlNmE5OG81ZVRtMnp2a0NiMDZyWnpHMEZERDg4Ny5qVGE5KlJMN2RvN251VlEhIS9vJmVrPTEma3A9MSZwdD0wJmJvPU9BUzhCamdFdkFZV0FEQSEmdGw9MSZ0bT0xNjY4MDY3MjAwJmRpc190PTE2NjgwNjg1NDAmZGlzX2s9ZjU3MzYwY2EyNWEzOGJkZWRiMzQ2MTEwMmUwODA1YjAmc2NlPTAtMTItMTImcmY9dmlld2VyXzMxMQ==">http://r.photo.store.qq.com/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzG9M7gUd4AnEKyUmC8AwPe6a98o5eTm2zvkCb06rZzG0FDD887.jTa9*RL7do7nuVQ!!/o&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=OAS8BjgEvAYWADA!&amp;tl=1&amp;tm=1668067200&amp;dis_t=1668068540&amp;dis_k=f57360ca25a38bdedb3461102e0805b0&amp;sce=0-12-12&amp;rf=viewer_311</span>‘<br>  let imgSrc7 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL3Bob3RvZ3oucGhvdG8uc3RvcmUucXEuY29tL3BzYz8vVjE0Wnh6bHIzc2lEUTgvcnVBTXNhNTNwVlFXTjdGTEs4OGk1aFAwR3NYcHlXaHd0TVhSbktHakliU3JSQy5HWXNRU1dNeUxWU3FsQkg1Y2dzQ0lvd0dlWVluaGFRdUNmQXJFRmkuWXlyaHEyZUxLRmdJSzkzMzNyeDAhL2EmYm89b0FVNEJBQUFBQUFXRUxr">http://photogz.photo.store.qq.com/psc?/V14Zxzlr3siDQ8/ruAMsa53pVQWN7FLK88i5hP0GsXpyWhwtMXRnKGjIbSrRC.GYsQSWMyLVSqlBH5cgsCIowGeYYnhaQuCfArEFi.Yyrhq2eLKFgIK9333rx0!/a&amp;bo=oAU4BAAAAAAWELk</span>!’<br>  let imgSrc8 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL3Bob3RvZ3oucGhvdG8uc3RvcmUucXEuY29tL3BzYz8vVjE0Wnh6bHIzc2lEUTgvcnVBTXNhNTNwVlFXTjdGTEs4OGk1bXJxTXRkNFQyKm5JNkNId1Y3YipCc1JVYlQ0U3BMSld2WjJJOGJCdk84YjNGdUJYR05DM0YuRmxMRXBGUHJzNzk5WG90dzN6R2dsMmpKU3RtWm5aa0khL2EmYm89T0FSc0NRQUFBQUFXRUhr">http://photogz.photo.store.qq.com/psc?/V14Zxzlr3siDQ8/ruAMsa53pVQWN7FLK88i5mrqMtd4T2*nI6CHwV7b*BsRUbT4SpLJWvZ2I8bBvO8b3FuBXGNC3F.FlLEpFPrs799Xotw3zGgl2jJStmZnZkI!/a&amp;bo=OARsCQAAAAAWEHk</span>!’<br>  let imgSrc9 &#x3D; ‘<span class="exturl" data-url="aHR0cDovL3Bob3RvZ3oucGhvdG8uc3RvcmUucXEuY29tL3BzYz8vVjE0Wnh6bHIzc2lEUTgvcnVBTXNhNTNwVlFXTjdGTEs4OGk1aWJIRUF6VlNUbVRZWW9BQ2hIRTBEWFdHYjNwQjhDMjdwVXdVU3oxbGgqdEJIMGl1MnBVWGkuckdFSm9wR1NGUDNCUGNJb0tSeERQS0dkc2lvVW5iU28hL2EmYm89b0FVNEJBQUFBQUFXRUxr">http://photogz.photo.store.qq.com/psc?/V14Zxzlr3siDQ8/ruAMsa53pVQWN7FLK88i5ibHEAzVSTmTYYoAChHE0DXWGb3pB8C27pUwUSz1lh*tBH0iu2pUXi.rGEJopGSFP3BPcIoKRxDPKGdsioUnbSo!/a&amp;bo=oAU4BAAAAAAWELk</span>!’<br>  let imgSrc10 &#x3D; ‘E:&#x2F;图片&#x2F;10.jpg’<br>  let imgSrc11 &#x3D; ‘E:&#x2F;图片&#x2F;11.jpg’<br>  let imgSrc12 &#x3D; ‘E:&#x2F;图片&#x2F;12.jpg’<br>  let imgSrc13 &#x3D; ‘E:&#x2F;图片&#x2F;13.jpg’<br>  let imgSrc14 &#x3D; ‘E:&#x2F;图片&#x2F;14.jpg’<br>  let imgSrc15 &#x3D; ‘E:&#x2F;图片&#x2F;15.jpg’<br>  let imgSrc16 &#x3D; ‘E:&#x2F;图片&#x2F;16.jpg’<br>  let imgSrc17 &#x3D; ‘E:&#x2F;图片&#x2F;17.jpg’<br>  let imgSrc18 &#x3D; ‘E:&#x2F;图片&#x2F;18.jpg’<br>  let imgSrc19 &#x3D; ‘E:&#x2F;图片&#x2F;19.jpg’<br>  let imgSrc20 &#x3D; ‘E:&#x2F;图片&#x2F;20.jpg’<br>  let imgSrc21 &#x3D; ‘E:&#x2F;图片&#x2F;21.jpg’<br>  let imgSrc22 &#x3D; ‘E:&#x2F;图片&#x2F;22.jpg’<br>  let imgSrc23 &#x3D; ‘E:&#x2F;图片&#x2F;23.jpg’<br>  let imgSrc24 &#x3D; ‘E:&#x2F;图片&#x2F;24.jpg’<br>  let imgSrc25 &#x3D; ‘E:&#x2F;图片&#x2F;25.jpg’<br>  let imgSrc26 &#x3D; ‘E:&#x2F;图片&#x2F;26.jpg’<br>  let imgSrc27 &#x3D; ‘E:&#x2F;图片&#x2F;27.jpg’<br>  let imgSrc28 &#x3D; ‘E:&#x2F;图片&#x2F;28.jpg’<br>  let imgSrc29 &#x3D; ‘E:&#x2F;图片&#x2F;29.jpg’<br>  let imgSrc30 &#x3D; ‘E:&#x2F;图片&#x2F;30.jpg’<br>  let imgSrc31 &#x3D; ‘E:&#x2F;图片&#x2F;31.jpg’<br>  let imgSrc32 &#x3D; ‘E:&#x2F;图片&#x2F;32.jpg’<br>  let imgSrc33 &#x3D; ‘E:&#x2F;图片&#x2F;33.jpg’<br>  let imgSrc34 &#x3D; ‘E:&#x2F;图片&#x2F;34.jpg’<br>  let imgSrc35 &#x3D; ‘E:&#x2F;图片&#x2F;35.jpg’<br>  let imgSrc36 &#x3D; ‘E:&#x2F;图片&#x2F;36.jpg’<br>  &#x2F;&#x2F;音频<br>  document.addEventListener(‘click’, musicPlay);<br>  function musicPlay() {<br>    document.querySelector(‘audio’).play();<br>    document.removeEventListener(‘click’, musicPlay);<br>    document.querySelector(‘.tip’).style.display &#x3D; ‘none’;<br>    randomImg();<br>  }</p>
-<p>  &#x2F;&#x2F;随机位置生成图片<br>  function randomImg() {<br>    setInterval(function () {<br>      createRanImg(imgSrc1);<br>      createRanImg(imgSrc2);<br>      createRanImg(imgSrc3);<br>    }, 1000)<br>    setInterval(function () {<br>      createRanImg(imgSrc4);<br>      createRanImg(imgSrc5);<br>      createRanImg(imgSrc6);<br>    }, 2000)<br>      setInterval(function () {<br>      createRanImg(imgSrc7);<br>      createRanImg(imgSrc8);<br>      createRanImg(imgSrc9);<br>    }, 1500)<br>    setInterval(function () {<br>      &#x2F;&#x2F;删除图片<br>      removeRanImg();<br>    }, 500)<br>  }</p>
-<p>  function createRanImg(imgSrc) {<br>    setTimeout(function () {<br>      let top &#x3D; Math.round(Math.random() * (document.body.clientHeight - 200) + 100);<br>      let left &#x3D; Math.round(Math.random() * (document.body.clientWidth - 200) + 100);<br>      let img &#x3D; document.createElement(‘img’);<br>      img.src &#x3D; imgSrc;<br>      img.style.position &#x3D; ‘fixed’;<br>      img.style.width &#x3D; ‘10%’;<br>      img.style.top &#x3D; top + ‘px’;<br>      img.style.left &#x3D; left + ‘px’;<br>      img.style.transition &#x3D; ‘all 0.5s’;<br>      img.style.opacity &#x3D; 0.3;<br>      let container &#x3D; document.querySelector(‘#jsi-cherry-container’);<br>      let pinkboard &#x3D; document.querySelector(‘#pinkboard’);<br>      container.insertBefore(img, pinkboard);<br>    }, 200)<br>  }</p>
-<p>  function removeRanImg() {<br>    let container &#x3D; document.querySelector(‘#jsi-cherry-container’);<br>    let children &#x3D; container.children;<br>    for (let i &#x3D; 1; i &lt; children.length - 1; i++) {<br>      container.removeChild(children[i]);<br>    }</p>
-<p>  }</p>
-<p>  &#x2F;*</p>
-<ul>
-<li>Settings<br>   *&#x2F;<br>  var settings &#x3D; {<br>particles: {<br> length: 700, &#x2F;&#x2F; maximum amount of particles         【最大颗粒量】<br> duration: 2, &#x2F;&#x2F; particle duration in sec            【力资持续时间（秒）】<br> velocity: 300, &#x2F;&#x2F; particle velocity in pixels&#x2F;sec   【粒子速度（像素&#x2F;秒）】<br> effect: -0.75, &#x2F;&#x2F; play with this for a nice effect  【效果】<br> size: 30, &#x2F;&#x2F; particle size in pixels                【颗粒尺寸（像素）】<br>},<br>  };</li>
-</ul>
-<p>  (function () {<br>    var b &#x3D; 0;<br>    var c &#x3D; [“ms”, “moz”, “webkit”, “o”];<br>    for (var a &#x3D; 0; a &lt; c.length &amp;&amp; !window.requestAnimationFrame; ++a) {<br>      window.requestAnimationFrame &#x3D; window[c[a] + “RequestAnimationFrame”];<br>      window.cancelAnimationFrame &#x3D;<br>        window[c[a] + “CancelAnimationFrame”] ||<br>        window[c[a] + “CancelRequestAnimationFrame”];<br>    }<br>    if (!window.requestAnimationFrame) {<br>      window.requestAnimationFrame &#x3D; function (h, e) {<br>        var d &#x3D; new Date().getTime();<br>        var f &#x3D; Math.max(0, 16 - (d - b));<br>        var g &#x3D; window.setTimeout(function () {<br>          h(d + f);<br>        }, f);<br>        b &#x3D; d + f;<br>        return g;<br>      };<br>    }<br>    if (!window.cancelAnimationFrame) {<br>      window.cancelAnimationFrame &#x3D; function (d) {<br>        clearTimeout(d);<br>      };<br>    }<br>  })();</p>
-<p>  &#x2F;* 点 (心形)</p>
-<ul>
-<li>Point class<br>   *&#x2F;<br>  var Point &#x3D; (function () {<br>function Point(x, y) {<br> this.x &#x3D; typeof x !&#x3D;&#x3D; “undefined” ? x : 0;<br> this.y &#x3D; typeof y !&#x3D;&#x3D; “undefined” ? y : 0;<br>}<br>Point.prototype.clone &#x3D; function () {<br> return new Point(this.x, this.y);<br>};<br>Point.prototype.length &#x3D; function (length) {<br> if (typeof length &#x3D;&#x3D; “undefined”)<br>   return Math.sqrt(this.x * this.x + this.y * this.y);<br> this.normalize();<br> this.x *&#x3D; length;<br> this.y *&#x3D; length;<br> return this;<br>};<br>Point.prototype.normalize &#x3D; function () {<br> var length &#x3D; this.length();<br> this.x &#x2F;&#x3D; length;<br> this.y &#x2F;&#x3D; length;<br> return this;<br>};<br>return Point;<br>  })();</li>
-</ul>
-<p>  &#x2F;*</p>
-<ul>
-<li>微粒</li>
-<li>Particle class<br>   *&#x2F;<br>  var Particle &#x3D; (function () {<br>function Particle() {<br> this.position &#x3D; new Point();<br> this.velocity &#x3D; new Point();<br> this.acceleration &#x3D; new Point();<br> this.age &#x3D; 0;<br>}<br>Particle.prototype.initialize &#x3D; function (x, y, dx, dy) {<br> this.position.x &#x3D; x;<br> this.position.y &#x3D; y;<br> this.velocity.x &#x3D; dx;<br> this.velocity.y &#x3D; dy;<br> this.acceleration.x &#x3D; dx * settings.particles.effect;<br> this.acceleration.y &#x3D; dy * settings.particles.effect;<br> this.age &#x3D; 0;<br>};<br>Particle.prototype.update &#x3D; function (deltaTime) {<br> this.position.x +&#x3D; this.velocity.x * deltaTime;<br> this.position.y +&#x3D; this.velocity.y * deltaTime;<br> this.velocity.x +&#x3D; this.acceleration.x * deltaTime;<br> this.velocity.y +&#x3D; this.acceleration.y * deltaTime;<br> this.age +&#x3D; deltaTime;<br>};<br>Particle.prototype.draw &#x3D; function (context, image) {<br> function ease(t) {<br>   return –t * t * t + 1;<br> }<br> var size &#x3D; (image.width) * ease(this.age &#x2F; settings.particles.duration);<br> context.globalAlpha &#x3D; 1 - this.age &#x2F; settings.particles.duration;<br> context.drawImage(<br>   image,<br>   this.position.x - size &#x2F; 2,<br>   this.position.y - size &#x2F; 2,<br>   size,<br>   size<br> );<br>};<br>return Particle;<br>  })();</li>
-</ul>
-<p>  &#x2F;* 微粒池</p>
-<ul>
-<li>ParticlePool class<br>   *&#x2F;<br>  var ParticlePool &#x3D; (function () {<br>var particles,<br> firstActive &#x3D; 0,<br> firstFree &#x3D; 0,<br> duration &#x3D; settings.particles.duration;</li>
-</ul>
-<pre><code>function ParticlePool(length) &#123;
-  // create and populate particle pool
-  particles = new Array(length);
-  for (var i = 0; i &lt; particles.length; i++)
-    particles[i] = new Particle();
-&#125;
-ParticlePool.prototype.add = function (x, y, dx, dy) &#123;
-  particles[firstFree].initialize(x, y, dx, dy);
+  let imgSrc1 = 'http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzNDoPzcoAfncKQBdVAmsp80t0oIYtTHTgWqQFoB7oAxTZuWEkIeth60g6EXXcPf75g!!/m&ek=1&kp=1&pt=0&bo=0AJWA9ACVgMWADA!&tl=1&tm=1668067200&dis_t=1668068540&dis_k=1e8e47c243c27c02bd9e1732c6b6e472&sce=0-12-12&rf=0-18'      
+  let imgSrc2 = 'http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzH4trMvojzegEbzZk4wdrU*dmvDjcUSZ59YOH3x2wTN6f0SYXWFPnjBelJvnXdlNlw!!/m&ek=1&kp=1&pt=0&bo=OASgBTgEoAUWADA!&tl=1&tm=1668067200&dis_t=1668068540&dis_k=675b2330c5be4f7a1c52eb3a67256aaa&sce=0-12-12&rf=0-18'
+  let imgSrc3 = 'http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzH4trMvojzegEbzZk4wdrU*dmvDjcUSZ59YOH3x2wTN6f0SYXWFPnjBelJvnXdlNlw!!/m&ek=1&kp=1&pt=0&bo=OASgBTgEoAUWADA!&tl=1&tm=1668067200&dis_t=1668068540&dis_k=675b2330c5be4f7a1c52eb3a67256aaa&sce=0-12-12&rf=0-18'
+  let imgSrc4 = 'http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzLnpqSvZSkozk2lVovvhZwe5eoSikbZxVrI4SkRGx9U3AGokblTsBbEq7DOuXLu0XQ!!/m&ek=1&kp=1&pt=0&bo=oAU4BKAFOAQWADA!&tl=1&tm=1668067200&dis_t=1668068540&dis_k=7feb97060e66f37db900ec96d442fa79&sce=0-12-12&rf=0-18'
+  let imgSrc5 = 'http://a1.qpic.cn/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzLnpqSvZSkozk2lVovvhZwe5eoSikbZxVrI4SkRGx9U3AGokblTsBbEq7DOuXLu0XQ!!/m&ek=1&kp=1&pt=0&bo=oAU4BKAFOAQWADA!&tl=1&tm=1668067200&dis_t=1668068540&dis_k=7feb97060e66f37db900ec96d442fa79&sce=0-12-12&rf=0-18'
+  let imgSrc6 = 'http://r.photo.store.qq.com/psc?/V14Zxzlr3siDQ8/05RlWl8gsTOH*Z17MtCBzG9M7gUd4AnEKyUmC8AwPe6a98o5eTm2zvkCb06rZzG0FDD887.jTa9*RL7do7nuVQ!!/o&ek=1&kp=1&pt=0&bo=OAS8BjgEvAYWADA!&tl=1&tm=1668067200&dis_t=1668068540&dis_k=f57360ca25a38bdedb3461102e0805b0&sce=0-12-12&rf=viewer_311'
+  let imgSrc7 = 'http://photogz.photo.store.qq.com/psc?/V14Zxzlr3siDQ8/ruAMsa53pVQWN7FLK88i5hP0GsXpyWhwtMXRnKGjIbSrRC.GYsQSWMyLVSqlBH5cgsCIowGeYYnhaQuCfArEFi.Yyrhq2eLKFgIK9333rx0!/a&bo=oAU4BAAAAAAWELk!'
+  let imgSrc8 = 'http://photogz.photo.store.qq.com/psc?/V14Zxzlr3siDQ8/ruAMsa53pVQWN7FLK88i5mrqMtd4T2*nI6CHwV7b*BsRUbT4SpLJWvZ2I8bBvO8b3FuBXGNC3F.FlLEpFPrs799Xotw3zGgl2jJStmZnZkI!/a&bo=OARsCQAAAAAWEHk!'
+  let imgSrc9 = 'http://photogz.photo.store.qq.com/psc?/V14Zxzlr3siDQ8/ruAMsa53pVQWN7FLK88i5ibHEAzVSTmTYYoAChHE0DXWGb3pB8C27pUwUSz1lh*tBH0iu2pUXi.rGEJopGSFP3BPcIoKRxDPKGdsioUnbSo!/a&bo=oAU4BAAAAAAWELk!'
+  let imgSrc10 = 'E:/图片/10.jpg'
+  let imgSrc11 = 'E:/图片/11.jpg'
+  let imgSrc12 = 'E:/图片/12.jpg'
+  let imgSrc13 = 'E:/图片/13.jpg'
+  let imgSrc14 = 'E:/图片/14.jpg'
+  let imgSrc15 = 'E:/图片/15.jpg'
+  let imgSrc16 = 'E:/图片/16.jpg'
+  let imgSrc17 = 'E:/图片/17.jpg'
+  let imgSrc18 = 'E:/图片/18.jpg'
+  let imgSrc19 = 'E:/图片/19.jpg'
+  let imgSrc20 = 'E:/图片/20.jpg'
+  let imgSrc21 = 'E:/图片/21.jpg'
+  let imgSrc22 = 'E:/图片/22.jpg'
+  let imgSrc23 = 'E:/图片/23.jpg'
+  let imgSrc24 = 'E:/图片/24.jpg'
+  let imgSrc25 = 'E:/图片/25.jpg'
+  let imgSrc26 = 'E:/图片/26.jpg'
+  let imgSrc27 = 'E:/图片/27.jpg'
+  let imgSrc28 = 'E:/图片/28.jpg'
+  let imgSrc29 = 'E:/图片/29.jpg'
+  let imgSrc30 = 'E:/图片/30.jpg'
+  let imgSrc31 = 'E:/图片/31.jpg'
+  let imgSrc32 = 'E:/图片/32.jpg'
+  let imgSrc33 = 'E:/图片/33.jpg'
+  let imgSrc34 = 'E:/图片/34.jpg'
+  let imgSrc35 = 'E:/图片/35.jpg'
+  let imgSrc36 = 'E:/图片/36.jpg'
+  //音频
+  document.addEventListener('click', musicPlay);
+  function musicPlay() {
+    document.querySelector('audio').play();
+    document.removeEventListener('click', musicPlay);
+    document.querySelector('.tip').style.display = 'none';
+    randomImg();
+  }
 
-  // handle circular queue
-  firstFree++;
-  if (firstFree == particles.length) firstFree = 0;
-  if (firstActive == firstFree) firstActive++;
-  if (firstActive == particles.length) firstActive = 0;
-&#125;;
-ParticlePool.prototype.update = function (deltaTime) &#123;
-  var i;
+  //随机位置生成图片
+  function randomImg() {
+    setInterval(function () {
+      createRanImg(imgSrc1);
+      createRanImg(imgSrc2);
+      createRanImg(imgSrc3);
+    }, 1000)
+    setInterval(function () {
+      createRanImg(imgSrc4);
+      createRanImg(imgSrc5);
+      createRanImg(imgSrc6);
+    }, 2000)
+      setInterval(function () {
+      createRanImg(imgSrc7);
+      createRanImg(imgSrc8);
+      createRanImg(imgSrc9);
+    }, 1500)
+    setInterval(function () {
+      //删除图片
+      removeRanImg();
+    }, 500)
+  }
 
-  // update active particles
-  if (firstActive &lt; firstFree) &#123;
-    for (i = firstActive; i &lt; firstFree; i++)
-      particles[i].update(deltaTime);
-  &#125;
-  if (firstFree &lt; firstActive) &#123;
-    for (i = firstActive; i &lt; particles.length; i++)
-      particles[i].update(deltaTime);
-    for (i = 0; i &lt; firstFree; i++) particles[i].update(deltaTime);
-  &#125;
+  function createRanImg(imgSrc) {
+    setTimeout(function () {
+      let top = Math.round(Math.random() * (document.body.clientHeight - 200) + 100);
+      let left = Math.round(Math.random() * (document.body.clientWidth - 200) + 100);
+      let img = document.createElement('img');
+      img.src = imgSrc;
+      img.style.position = 'fixed';
+      img.style.width = '10%';
+      img.style.top = top + 'px';
+      img.style.left = left + 'px';
+      img.style.transition = 'all 0.5s';
+      img.style.opacity = 0.3;
+      let container = document.querySelector('#jsi-cherry-container');
+      let pinkboard = document.querySelector('#pinkboard');
+      container.insertBefore(img, pinkboard);
+    }, 200)
+  }
 
-  // remove inactive particles
-  while (
-    particles[firstActive].age &gt;= duration &amp;&amp;
-    firstActive != firstFree
-  ) &#123;
-    firstActive++;
-    if (firstActive == particles.length) firstActive = 0;
-  &#125;
-&#125;;
-ParticlePool.prototype.draw = function (context, image) &#123;
-  // draw active particles
-  if (firstActive &lt; firstFree) &#123;
-    for (i = firstActive; i &lt; firstFree; i++)
-      particles[i].draw(context, image);
-  &#125;
-  if (firstFree &lt; firstActive) &#123;
-    for (i = firstActive; i &lt; particles.length; i++)
-      particles[i].draw(context, image);
-    for (i = 0; i &lt; firstFree; i++) particles[i].draw(context, image);
-  &#125;
-&#125;;
-return ParticlePool;
-</code></pre>
-<p>  })();</p>
-<p>  &#x2F;* 渲染canvas</p>
-<ul>
-<li>Putting it all together<br>   *&#x2F;<br>  (function (canvas) {<br>&#x2F;&#x2F;获取画布<br>var context &#x3D; canvas.getContext(“2d”),<br> particles &#x3D; new ParticlePool(settings.particles.length),<br> particleRate &#x3D; settings.particles.length &#x2F; settings.particles.duration, &#x2F;&#x2F; particles&#x2F;sec<br> time;</li>
-</ul>
-<pre><code>// get point on heart with -PI &lt;= t &lt;= PI
-function pointOnHeart(t) &#123;
-  //通过三角函数画出心形
-  return new Point(
-    (160 * Math.pow(Math.sin(t), 3)) / 1.4,
-    (130 * Math.cos(t) -
-      50 * Math.cos(2 * t) -
-      20 * Math.cos(3 * t) -
-      10 * Math.cos(4 * t) +
-      25) / 1.4
-  );
-&#125;
+  function removeRanImg() {
+    let container = document.querySelector('#jsi-cherry-container');
+    let children = container.children;
+    for (let i = 1; i < children.length - 1; i++) {
+      container.removeChild(children[i]);
+    }
 
-// creating the particle image using a dummy canvas
-var image = (function () &#123;
-  var canvas = document.createElement(&quot;canvas&quot;),
-    context = canvas.getContext(&quot;2d&quot;);
-  canvas.width = settings.particles.size;
-  canvas.height = settings.particles.size;
-  // helper function to create the path
-  function to(t) &#123;
-    var point = pointOnHeart(t);
-    //小心
-    point.x =
-      settings.particles.size / 2 +
-      (point.x * settings.particles.size) / 350;
-    point.y =
-      settings.particles.size / 2 -
-      (point.y * settings.particles.size) / 350;
-    return point;
-  &#125;
-  // create the path
-  context.beginPath();
-  var t = -Math.PI;
-  var point = to(t);
-  context.moveTo(point.x, point.y);
-  while (t &lt; Math.PI) &#123;
-    t += 0.01; // baby steps!
-    point = to(t);
-    context.lineTo(point.x, point.y);
-  &#125;
-  context.closePath();
-  // create the fill
-  context.fillStyle = &quot;#ea80b0&quot;;
-  context.fill();
-  // create the image
-  var image = new Image();
-  image.src = canvas.toDataURL();
-  return image;
-&#125;)();
+  }
 
-// render that thing!
-function render() &#123;
-  // next animation frame
-  requestAnimationFrame(render);
 
-  // update time
-  var newTime = new Date().getTime() / 1000,
-    deltaTime = newTime - (time || newTime);
-  time = newTime;
 
-  // clear canvas
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  /*
+   * Settings
+   */
+  var settings = {
+    particles: {
+      length: 700, // maximum amount of particles         【最大颗粒量】
+      duration: 2, // particle duration in sec            【力资持续时间（秒）】
+      velocity: 300, // particle velocity in pixels/sec   【粒子速度（像素/秒）】
+      effect: -0.75, // play with this for a nice effect  【效果】
+      size: 30, // particle size in pixels                【颗粒尺寸（像素）】
+    },
+  };
 
-  // create new particles
-  var amount = particleRate * deltaTime;
-  for (var i = 0; i &lt; amount; i++) &#123;
-    var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
-    var dir = pos.clone().length(settings.particles.velocity);
-    particles.add(
-      canvas.width / 2 + pos.x,
-      canvas.height / 2 - pos.y,
-      dir.x,
-      -dir.y
-    );
-  &#125;
 
-  // update and draw particles
-  particles.update(deltaTime);
-  particles.draw(context, image);
-&#125;
+  (function () {
+    var b = 0;
+    var c = ["ms", "moz", "webkit", "o"];
+    for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) {
+      window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"];
+      window.cancelAnimationFrame =
+        window[c[a] + "CancelAnimationFrame"] ||
+        window[c[a] + "CancelRequestAnimationFrame"];
+    }
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = function (h, e) {
+        var d = new Date().getTime();
+        var f = Math.max(0, 16 - (d - b));
+        var g = window.setTimeout(function () {
+          h(d + f);
+        }, f);
+        b = d + f;
+        return g;
+      };
+    }
+    if (!window.cancelAnimationFrame) {
+      window.cancelAnimationFrame = function (d) {
+        clearTimeout(d);
+      };
+    }
+  })();
 
-// handle (re-)sizing of the canvas
-function onResize() &#123;
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
-&#125;
-window.onresize = onResize;
+  /* 点 (心形)
+   * Point class
+   */
+  var Point = (function () {
+    function Point(x, y) {
+      this.x = typeof x !== "undefined" ? x : 0;
+      this.y = typeof y !== "undefined" ? y : 0;
+    }
+    Point.prototype.clone = function () {
+      return new Point(this.x, this.y);
+    };
+    Point.prototype.length = function (length) {
+      if (typeof length == "undefined")
+        return Math.sqrt(this.x * this.x + this.y * this.y);
+      this.normalize();
+      this.x *= length;
+      this.y *= length;
+      return this;
+    };
+    Point.prototype.normalize = function () {
+      var length = this.length();
+      this.x /= length;
+      this.y /= length;
+      return this;
+    };
+    return Point;
+  })();
 
-// delay rendering bootstrap
-setTimeout(function () &#123;
-  onResize();
-  render();
-&#125;, 10);
-</code></pre>
-<p>  })(document.getElementById(“pinkboard”));</p>
-<p></script></p>
+  /*
+   * 微粒
+   * Particle class
+   */
+  var Particle = (function () {
+    function Particle() {
+      this.position = new Point();
+      this.velocity = new Point();
+      this.acceleration = new Point();
+      this.age = 0;
+    }
+    Particle.prototype.initialize = function (x, y, dx, dy) {
+      this.position.x = x;
+      this.position.y = y;
+      this.velocity.x = dx;
+      this.velocity.y = dy;
+      this.acceleration.x = dx * settings.particles.effect;
+      this.acceleration.y = dy * settings.particles.effect;
+      this.age = 0;
+    };
+    Particle.prototype.update = function (deltaTime) {
+      this.position.x += this.velocity.x * deltaTime;
+      this.position.y += this.velocity.y * deltaTime;
+      this.velocity.x += this.acceleration.x * deltaTime;
+      this.velocity.y += this.acceleration.y * deltaTime;
+      this.age += deltaTime;
+    };
+    Particle.prototype.draw = function (context, image) {
+      function ease(t) {
+        return --t * t * t + 1;
+      }
+      var size = (image.width) * ease(this.age / settings.particles.duration);
+      context.globalAlpha = 1 - this.age / settings.particles.duration;
+      context.drawImage(
+        image,
+        this.position.x - size / 2,
+        this.position.y - size / 2,
+        size,
+        size
+      );
+    };
+    return Particle;
+  })();
 
+  /* 微粒池
+   * ParticlePool class
+   */
+  var ParticlePool = (function () {
+    var particles,
+      firstActive = 0,
+      firstFree = 0,
+      duration = settings.particles.duration;
+
+    function ParticlePool(length) {
+      // create and populate particle pool
+      particles = new Array(length);
+      for (var i = 0; i < particles.length; i++)
+        particles[i] = new Particle();
+    }
+    ParticlePool.prototype.add = function (x, y, dx, dy) {
+      particles[firstFree].initialize(x, y, dx, dy);
+
+      // handle circular queue
+      firstFree++;
+      if (firstFree == particles.length) firstFree = 0;
+      if (firstActive == firstFree) firstActive++;
+      if (firstActive == particles.length) firstActive = 0;
+    };
+    ParticlePool.prototype.update = function (deltaTime) {
+      var i;
+
+      // update active particles
+      if (firstActive < firstFree) {
+        for (i = firstActive; i < firstFree; i++)
+          particles[i].update(deltaTime);
+      }
+      if (firstFree < firstActive) {
+        for (i = firstActive; i < particles.length; i++)
+          particles[i].update(deltaTime);
+        for (i = 0; i < firstFree; i++) particles[i].update(deltaTime);
+      }
+
+      // remove inactive particles
+      while (
+        particles[firstActive].age >= duration &&
+        firstActive != firstFree
+      ) {
+        firstActive++;
+        if (firstActive == particles.length) firstActive = 0;
+      }
+    };
+    ParticlePool.prototype.draw = function (context, image) {
+      // draw active particles
+      if (firstActive < firstFree) {
+        for (i = firstActive; i < firstFree; i++)
+          particles[i].draw(context, image);
+      }
+      if (firstFree < firstActive) {
+        for (i = firstActive; i < particles.length; i++)
+          particles[i].draw(context, image);
+        for (i = 0; i < firstFree; i++) particles[i].draw(context, image);
+      }
+    };
+    return ParticlePool;
+  })();
+
+  /* 渲染canvas
+   * Putting it all together
+   */
+  (function (canvas) {
+    //获取画布
+    var context = canvas.getContext("2d"),
+      particles = new ParticlePool(settings.particles.length),
+      particleRate = settings.particles.length / settings.particles.duration, // particles/sec
+      time;
+
+    // get point on heart with -PI <= t <= PI
+    function pointOnHeart(t) {
+      //通过三角函数画出心形
+      return new Point(
+        (160 * Math.pow(Math.sin(t), 3)) / 1.4,
+        (130 * Math.cos(t) -
+          50 * Math.cos(2 * t) -
+          20 * Math.cos(3 * t) -
+          10 * Math.cos(4 * t) +
+          25) / 1.4
+      );
+    }
+
+    // creating the particle image using a dummy canvas
+    var image = (function () {
+      var canvas = document.createElement("canvas"),
+        context = canvas.getContext("2d");
+      canvas.width = settings.particles.size;
+      canvas.height = settings.particles.size;
+      // helper function to create the path
+      function to(t) {
+        var point = pointOnHeart(t);
+        //小心
+        point.x =
+          settings.particles.size / 2 +
+          (point.x * settings.particles.size) / 350;
+        point.y =
+          settings.particles.size / 2 -
+          (point.y * settings.particles.size) / 350;
+        return point;
+      }
+      // create the path
+      context.beginPath();
+      var t = -Math.PI;
+      var point = to(t);
+      context.moveTo(point.x, point.y);
+      while (t < Math.PI) {
+        t += 0.01; // baby steps!
+        point = to(t);
+        context.lineTo(point.x, point.y);
+      }
+      context.closePath();
+      // create the fill
+      context.fillStyle = "#ea80b0";
+      context.fill();
+      // create the image
+      var image = new Image();
+      image.src = canvas.toDataURL();
+      return image;
+    })();
+
+    // render that thing!
+    function render() {
+      // next animation frame
+      requestAnimationFrame(render);
+
+      // update time
+      var newTime = new Date().getTime() / 1000,
+        deltaTime = newTime - (time || newTime);
+      time = newTime;
+
+      // clear canvas
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // create new particles
+      var amount = particleRate * deltaTime;
+      for (var i = 0; i < amount; i++) {
+        var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
+        var dir = pos.clone().length(settings.particles.velocity);
+        particles.add(
+          canvas.width / 2 + pos.x,
+          canvas.height / 2 - pos.y,
+          dir.x,
+          -dir.y
+        );
+      }
+
+      // update and draw particles
+      particles.update(deltaTime);
+      particles.draw(context, image);
+    }
+
+    // handle (re-)sizing of the canvas
+    function onResize() {
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+    }
+    window.onresize = onResize;
+
+    // delay rendering bootstrap
+    setTimeout(function () {
+      onResize();
+      render();
+    }, 10);
+  })(document.getElementById("pinkboard"));
+
+
+</script>
   </div>
 
    <footer>
@@ -430,7 +669,7 @@ setTimeout(function () &#123;
     <div class="item left">
       
 
-  <a href="/2023/01/07/%E2%80%9Dtitle%E2%80%9C/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitzannuj20zk0m8b29.jpg" title="发表博客">
+  <a href="/2023/01/07/%E2%80%9Dtitle%E2%80%9C/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipev1x5e4j20zk0m8b29.jpg" title="发表博客">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>发表博客</h3>
@@ -520,15 +759,6 @@ setTimeout(function () &#123;
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/01/07/hello-world/" title="Hello World">Hello World</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/01/07/my-first-blog/" title="my-first-blog">my-first-blog</a></span>
   </li>
 
@@ -557,6 +787,15 @@ setTimeout(function () &#123;
 </div>
 
     <span><a href="/2023/01/09/%E7%88%B1%E5%BF%83/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/07/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
   </ul>
