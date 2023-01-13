@@ -32,7 +32,7 @@
 
 
   <title>
-攻防世界web前20题（引导模式） |
+攻防世界web前10题（引导模式） |
 ZPY = zhu</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ ZPY = zhu</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">攻防世界web前20题（引导模式）
+  <h1 itemprop="name headline">攻防世界web前10题（引导模式）
   </h1>
   
 <div class="meta">
@@ -102,12 +102,12 @@ ZPY = zhu</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclize41wj20zk0m87gk.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxfdlttj20zk0m8npd.jpg"></li>
         </ul>
       </div>
     </header>
@@ -151,15 +151,36 @@ ZPY = zhu</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="wp"><a href="#wp" class="headerlink" title="wp"></a>wp</h1><h2 id="view-source"><a href="#view-source" class="headerlink" title="view_source"></a>view_source</h2><p>第一题很简单，直接f12就可以了。<br><img data-src="/gfsj/view_source.1.png"><br>最后cyberpeace{f6407f597ef8a370de5ac18df22d7ed2}</p>
-<h2 id="robots"><a href="#robots" class="headerlink" title="robots"></a>robots</h2><p>这个题做了两遍了，第一次在ctfshow。<br>第一次见这个的时候很懵，去查了好多，但是看不懂也记不住。<br>反正碰到这个题就直接在后面加“&#x2F;robots.txt”。<br>这题就是直接加的，然后就出来可不可以访问的文件<br><img data-src="/gfsj/robots.1.png"><br>可以看到这个文件f1ag_1s_h3re.php，直接打开，就得到flag。<br><img data-src="/gfsj/robots.2.png"><br>最后cyberpeace{59076f9f48cb1cd861fe2332ad82cd69}</p>
-<h2 id="backup"><a href="#backup" class="headerlink" title="backup"></a>backup</h2><p>这个直接百度搜<br>index.php的备份名是index.php.bak,直接加到url上会下载得到一个文件，用记事本打开可以得到flag<br>最后Cyberpeace{855A1C4B3401294CB6604CCC98BDE334}</p>
-<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>一开始还真不知道cookie，去百度了一下 。<br>简单来说就是像手机号；可以通过cookie来得知网站保留的信息。<br>这道题的flag的线索就藏在cookie数据里面。<br>打开cookie.php得到一句话。<br><img data-src="/gfsj/cookie.1.png"><br>这句话的意思就是“查看 http 响应”，所以就看响应信息。<br>这里用bp抓了个包，然后就得到flag了。<br><img data-src="/gfsj/cookie.2.png"><br>最后cyberpeace{ca6e32a373a710d538205bb87fd3294a}</p>
-<h2 id="disabled-button"><a href="#disabled-button" class="headerlink" title="disabled_button"></a>disabled_button</h2><p>那道题发现真点不下去，但是可以想到f12应该可以解决。<br><img data-src="/gfsj/disabled_button.1.png"><br>但是我不知道那个地方是控制按钮的，然后就百度呗。<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L291eWlkYTMvYXJ0aWNsZS9kZXRhaWxzLzQ0MjU4NDQ5">这里有解释；点击这里</span><br>知道了input这里是控制按钮的，然后直接把disabled删掉就可以点击了。<br><img data-src="/gfsj/disabled_button.2.png"><br>点击了就得到flag了。<br><img data-src="/gfsj/disabled_button.3.png"><br>最后cyberpeace{fc808f04a20815dc263bc9a3975350f4}</p>
-<h2 id="get-post"><a href="#get-post" class="headerlink" title="get_post"></a>get_post</h2><p>get和post老朋友了，其实我这次才第一次知道怎么get和post请求。<br>这道题我会的有两种解题方式，一种bp，另一种是Hackbar。<br>拿到题让以get的方式提交名为a值为1的变量。</p>
-<h3 id="bp方式"><a href="#bp方式" class="headerlink" title="bp方式"></a>bp方式</h3><p>直接get注入“&#x2F;?a&#x3D;1”，然后又让以POST方式随便提交一个名为b,值为2的变量。<br><img data-src="/gfsj/get_post1.png"><br>然后就打开bp，直接改成post方式请求，下面加b&#x3D;2。<br><img data-src="/gfsj/get_post2.png"><br>得到flag。</p>
-<h3 id="hackbar方式"><a href="#hackbar方式" class="headerlink" title="hackbar方式"></a>hackbar方式</h3><p>前面一样，然后选中Post data，输入b&#x3D;2，再选择Execute，得到flag。<br><img data-src="/gfsj/get_post3.png"><br>最后cyberpeace{cb3dca5ea49d38a542130bd9c3e896f7}</p>
-<h2 id="weak-auth"><a href="#weak-auth" class="headerlink" title="weak_auth"></a>weak_auth</h2><p>查了一下，题目的意思是弱身份验证，查了一下怎么做。<br>解法就是用bp爆破<br>先随便输入账号密码，然后抓包。<br>然后就是账号和密码分别爆破。<br>这题主要让我学会了怎么用bp爆破<br>最后cyberpeace{89614cc6d3201ceb7ee275adef05bc7e}</p>
+    <h1 id="wp"><a href="#wp" class="headerlink" title="wp"></a>wp</h1><h2 id="1-view-source"><a href="#1-view-source" class="headerlink" title="1.view_source"></a>1.view_source</h2><p>第一题很简单，直接f12就可以了。<br>![](gfsj&#x2F;web引导模式 1~10&#x2F;view_source.1.png)<br>最后cyberpeace{f6407f597ef8a370de5ac18df22d7ed2}</p>
+<h2 id="2-robots"><a href="#2-robots" class="headerlink" title="2.robots"></a>2.robots</h2><p>这个题做了两遍了，第一次在ctfshow。<br>第一次见这个的时候很懵，去查了好多，但是看不懂也记不住。<br>反正碰到这个题就直接在后面加“&#x2F;robots.txt”。<br>这题就是直接加的，然后就出来可不可以访问的文件<br>![](gfsj&#x2F;web引导模式 1<del>10&#x2F;robots.1.png)<br>可以看到这个文件f1ag_1s_h3re.php，直接打开，就得到flag。<br>![](gfsj&#x2F;web引导模式 1</del>10&#x2F;robots.2.png)<br>最后cyberpeace{59076f9f48cb1cd861fe2332ad82cd69}</p>
+<h2 id="3-backup"><a href="#3-backup" class="headerlink" title="3.backup"></a>3.backup</h2><p>这个直接百度搜<br>index.php的备份名是index.php.bak,直接加到url上会下载得到一个文件，用记事本打开可以得到flag<br>最后Cyberpeace{855A1C4B3401294CB6604CCC98BDE334}</p>
+<h2 id="4-cookie"><a href="#4-cookie" class="headerlink" title="4.cookie"></a>4.cookie</h2><p>一开始还真不知道cookie，去百度了一下 。<br>简单来说就是像手机号；可以通过cookie来得知网站保留的信息。<br>这道题的flag的线索就藏在cookie数据里面。<br>打开cookie.php得到一句话。<br>![](gfsj&#x2F;web引导模式 1<del>10&#x2F;cookie.1.png)<br>这句话的意思就是“查看 http 响应”，所以就看响应信息。<br>这里用bp抓了个包，然后就得到flag了。<br>![](gfsj&#x2F;web引导模式 1</del>10&#x2F;cookie.2.png)<br>最后cyberpeace{ca6e32a373a710d538205bb87fd3294a}</p>
+<h2 id="5-disabled-button"><a href="#5-disabled-button" class="headerlink" title="5.disabled_button"></a>5.disabled_button</h2><p>那道题发现真点不下去，但是可以想到f12应该可以解决。<br>![](gfsj&#x2F;web引导模式 1<del>10&#x2F;disabled_button.1.png)<br>但是我不知道那个地方是控制按钮的，然后就百度呗。<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L291eWlkYTMvYXJ0aWNsZS9kZXRhaWxzLzQ0MjU4NDQ5">这里有解释；点击这里</span><br>知道了input这里是控制按钮的，然后直接把disabled删掉就可以点击了。<br>![](gfsj&#x2F;web引导模式 1</del>10&#x2F;disabled_button.2.png)<br>点击了就得到flag了。<br>![](gfsj&#x2F;web引导模式 1~10&#x2F;disabled_button.3.png)<br>最后cyberpeace{fc808f04a20815dc263bc9a3975350f4}</p>
+<h2 id="6-get-post"><a href="#6-get-post" class="headerlink" title="6.get_post"></a>6.get_post</h2><p>get和post老朋友了，其实我这次才第一次知道怎么get和post请求。<br>这道题我会的有两种解题方式，一种bp，另一种是Hackbar。<br>拿到题让以get的方式提交名为a值为1的变量。</p>
+<h3 id="bp方式"><a href="#bp方式" class="headerlink" title="bp方式"></a>bp方式</h3><p>直接get注入“&#x2F;?a&#x3D;1”，然后又让以POST方式随便提交一个名为b,值为2的变量。<br>![](gfsj&#x2F;web引导模式 1<del>10&#x2F;get_post2.png)<br>然后就打开bp，直接改成post方式请求，下面加b&#x3D;2。<br>![](gfsj&#x2F;web引导模式 1</del>10&#x2F;get_post2.png)<br>得到flag。</p>
+<h3 id="hackbar方式"><a href="#hackbar方式" class="headerlink" title="hackbar方式"></a>hackbar方式</h3><p>前面一样，然后选中Post data，输入b&#x3D;2，再选择Execute，得到flag。<br>![](gfsj&#x2F;web引导模式 1~10&#x2F;get_post3.png)<br>最后cyberpeace{cb3dca5ea49d38a542130bd9c3e896f7}</p>
+<h2 id="7-weak-auth"><a href="#7-weak-auth" class="headerlink" title="7.weak_auth"></a>7.weak_auth</h2><p>查了一下，题目的意思是弱身份验证，查了一下怎么做。<br>解法就是用bp爆破<br>先随便输入账号密码，然后抓包。<br>然后就是账号和密码分别爆破。<br>这题主要让我学会了怎么用bp爆破<br>最后cyberpeace{89614cc6d3201ceb7ee275adef05bc7e}</p>
+<h2 id="8-simple-php"><a href="#8-simple-php" class="headerlink" title="8.simple_php"></a>8.simple_php</h2><p>这题啊，代码审计<br>![](gfsj&#x2F;web引导模式 1<del>10&#x2F;simple_php1.png)<br>分析知道：需要注入一个a，b两个变量。<br>如果a&#x3D;0输入flag1，如果b为纯数字，直接结束，如果b&gt;1234,输出flag2。<br>我不明白if($a&#x3D;&#x3D;0 and $a)中的and$a什么意思。<br>输入&#x2F;?a&#x3D;0或&#x2F;?a&#x3D;0a可以输出flag1。<br>![](gfsj&#x2F;web引导模式 1</del>10&#x2F;simple_php1.png)<br>但是直接输入&#x2F;?a&#x3D;0&amp;b&#x3D;2222a只有flag2被输出。<br>![](gfsj&#x2F;web引导模式 1<del>10&#x2F;simple_php2.png)<br>但是输入&#x2F;?a&#x3D;0a&amp;b&#x3D;2222a就可以全输出。<br>![](gfsj&#x2F;web引导模式 1</del>10&#x2F;simple_php3.png)<br>最后Cyberpeace{647E37C7627CC3E4019EC69324F66C7C}</p>
+<h2 id="9-command-execution"><a href="#9-command-execution" class="headerlink" title="9.command_execution"></a>9.command_execution</h2><p>ping是Windows、Unix和Linux系统下的一个命令。ping也属于一个通信协议，是TCP&#x2F;IP协议的一部分。利用“ping”命令可以检查网络是否连通，可以很好地帮助我们分析和判定网络故障。应用格式：Ping空格IP地址。该命令还可以加许多参数使用，具体是键入Ping按回车即可看到详细说明。</p>
+<p>作用：它是用来检查网络是否通畅或者网络连接速度的命令。</p>
+<p>它所利用的原理是这样的：利用网络上机器IP地址的唯一性，给目标IP地址发送一个数据包，再要求对方返回一个同样大小的数据包来确定两台网络机器是否连接相通，时延是多少。</p>
+<p>ping命令的使用方法：<br>方法&#x2F;步骤</p>
+<p>首先用快捷键win+R调出运行命令框，输入cmd，点击确定，会弹出DOS窗口。</p>
+<p>ping命令的应用格式：①ping+IP地址或主机域名；②ping+IP地址或主机域名+命令参数；③ ping+命令参数+IP地址或主机域名 。注意，“+”要换成空格！当我们使用第①种格式时，默认只发送四个数据包。例如，我们来ping一下<span class="exturl" data-url="aHR0cDovL3d3dy5iYWlkdS5jb23ov5nkuKrlnLDlnYAuLw==">www.baidu.com这个地址。</span></p>
+<p>119.75.217.109便是百度的其中一台主机的地址；bytes表示发送数据包的大小，默认为32字节；Time表示从发出数据包到接受到返回数据包所用的时间；TTL表示生存时间值，该字段指定IP包被路由器丢弃之前允许通过的最大网段数量。</p>
+<p>Waf:</p>
+<p>WAF具备限制对某些URI请求次数的能力和限制文件上传功能的能力。</p>
+<p>[原理]</p>
+<p>| 的作用为将前一个命令的结果传递给后一个命令作为输入</p>
+<p>&amp;&amp;的作用是前一条命令执行成功时，才执行后一条命令</p>
+<p>掌握有关命令执行的知识</p>
+<p>windows 或 linux 下:</p>
+<p>command1 &amp;&amp; command2 先执行 command1，如果为真，再执行 command2</p>
+<p>command1 | command2 只执行 command2</p>
+<p>command1 &amp; command2 先执行 command2 后执行 command1</p>
+<p>command1 || command2 先执行 command1，如果为假，再执行 command2</p>
+<p>命令执行漏洞（| || &amp; &amp;&amp; 称为 管道符）<br>————————————————<br>原文链接：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzYyMDk0ODQ2L2FydGljbGUvZGV0YWlscy8xMjA5Mzc3MzQ=">https://blog.csdn.net/m0_62094846/article/details/120937734</span><br>这题也做过两次，第一次在buu,但是又有点不一样。<br>在这里只能127.0.0.1&amp;&amp;…<br>但是在buu中是127.0.0.1;…<br>先127.0.0.1&amp;&amp; ls看一下有没有flag。<br>是没有的。<br>![](gfsj&#x2F;web引导模式 1<del>10&#x2F;command_execution1.png)<br>然后就用“127.0.0.1&amp;&amp;find &#x2F; -name’flag*’”<br>看到了flag.txt再home里<br>![](gfsj&#x2F;web引导模式 1</del>10&#x2F;command_execution2.png)<br>然后用127.0.0.1&amp;&amp;cat &#x2F;home&#x2F;flag.txt打开得到flag。<br>![](gfsj&#x2F;web引导模式 1~10&#x2F;command_execution3.png)<br>最后cyberpeace{465cf5295856d1c69d7bdea031a11dab}</p>
+<h2 id="10-xff-referer"><a href="#10-xff-referer" class="headerlink" title="10.xff_referer"></a>10.xff_referer</h2><p>这个题就是虚拟ip和访问网址<br>用火狐浏览器，推荐一个推展X-Forwarded-For Header<br>直接改需要改的ip然后刷新一下就行了<br>![](gfsj&#x2F;web引导模式 1<del>10&#x2F;xff_referer1.png)<br>然后说让来自<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbSzlsLHnlKhoYWNrYmFyLw==">https://www.google.com，就用hackbar</span><br>先点Referer，然后把<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbei+k+i/m+WOuyznhLblkI7ngrlleGVjdXRl5bCx5b6X5YiwZmxhZ+S6hi4v">https://www.google.com输进去，然后点Execute就得到flag了。</span><br>![](gfsj&#x2F;web引导模式 1</del>10&#x2F;xff_referer2.png)<br>最后cyberpeace{dacf567488d089fdc0891fdc16ad97b3}</p>
 
       <div class="tags">
           <a href="/tags/ctf/" rel="tag"><i class="ic i-tag"></i> ctf</a>
@@ -176,7 +197,7 @@ ZPY = zhu</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-01-12 02:25:27" itemprop="dateModified" datetime="2023-01-12T02:25:27+08:00">2023-01-12</time>
+    <time title="修改时间：2023-01-14 00:45:02" itemprop="dateModified" datetime="2023-01-14T00:45:02+08:00">2023-01-14</time>
   </span>
 </div>
 
@@ -207,7 +228,7 @@ ZPY = zhu</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2023/01/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E5%89%8D20%E9%A2%98%EF%BC%88%E5%BC%95%E5%AF%BC%E6%A8%A1%E5%BC%8F%EF%BC%89/" title="攻防世界web前20题（引导模式）">http://example.com/2023/01/11/攻防世界web前20题（引导模式）/</a>
+    <a href="http://example.com/2023/01/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E5%89%8D20%E9%A2%98%EF%BC%88%E5%BC%95%E5%AF%BC%E6%A8%A1%E5%BC%8F%EF%BC%89/" title="攻防世界web前10题（引导模式）">http://example.com/2023/01/11/攻防世界web前20题（引导模式）/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -226,7 +247,7 @@ ZPY = zhu</title>
     <div class="item left">
       
 
-  <a href="/2023/01/10/%E5%AD%97%E7%AC%A6%E8%BD%AC%E5%8C%96%E4%B8%BAurl%E5%80%BC/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwuom7cj20zk0m8dvn.jpg" title="字符转化为url值">
+  <a href="/2023/01/10/%E5%AD%97%E7%AC%A6%E8%BD%AC%E5%8C%96%E4%B8%BAurl%E5%80%BC/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="字符转化为url值">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>字符转化为url值</h3>
@@ -250,7 +271,7 @@ ZPY = zhu</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#wp"><span class="toc-number">1.</span> <span class="toc-text">wp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#view-source"><span class="toc-number">1.1.</span> <span class="toc-text">view_source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#robots"><span class="toc-number">1.2.</span> <span class="toc-text">robots</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#backup"><span class="toc-number">1.3.</span> <span class="toc-text">backup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-number">1.4.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#disabled-button"><span class="toc-number">1.5.</span> <span class="toc-text">disabled_button</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#get-post"><span class="toc-number">1.6.</span> <span class="toc-text">get_post</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bp%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.1.</span> <span class="toc-text">bp方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hackbar%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">hackbar方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#weak-auth"><span class="toc-number">1.7.</span> <span class="toc-text">weak_auth</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#wp"><span class="toc-number">1.</span> <span class="toc-text">wp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-view-source"><span class="toc-number">1.1.</span> <span class="toc-text">1.view_source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-robots"><span class="toc-number">1.2.</span> <span class="toc-text">2.robots</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-backup"><span class="toc-number">1.3.</span> <span class="toc-text">3.backup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-cookie"><span class="toc-number">1.4.</span> <span class="toc-text">4.cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-disabled-button"><span class="toc-number">1.5.</span> <span class="toc-text">5.disabled_button</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-get-post"><span class="toc-number">1.6.</span> <span class="toc-text">6.get_post</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bp%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.1.</span> <span class="toc-text">bp方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hackbar%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">hackbar方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-weak-auth"><span class="toc-number">1.7.</span> <span class="toc-text">7.weak_auth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-simple-php"><span class="toc-number">1.8.</span> <span class="toc-text">8.simple_php</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-command-execution"><span class="toc-number">1.9.</span> <span class="toc-text">9.command_execution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-xff-referer"><span class="toc-number">1.10.</span> <span class="toc-text">10.xff_referer</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -323,43 +344,7 @@ ZPY = zhu</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/01/07/my-first-blog/" title="我爱伍雪仪">我爱伍雪仪</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/01/09/%E7%88%B1%E5%BF%83/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/01/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E5%89%8D20%E9%A2%98%EF%BC%88%E5%BC%95%E5%AF%BC%E6%A8%A1%E5%BC%8F%EF%BC%89/" title="攻防世界web前20题（引导模式）">攻防世界web前20题（引导模式）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/01/07/%E5%8D%9A%E5%AE%A2%E5%90%8D%E5%AD%97/" title="Hello World">Hello World</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/01/09/tupian/" title="tupian">tupian</a></span>
+    <span><a href="/2023/01/10/%E5%AD%97%E7%AC%A6%E8%BD%AC%E5%8C%96%E4%B8%BAurl%E5%80%BC/" title="字符转化为url值">字符转化为url值</a></span>
   </li>
 
       
@@ -386,6 +371,33 @@ ZPY = zhu</title>
 <div class="breadcrumb">
 </div>
 
+    <span><a href="/2023/01/09/tupian/" title="tupian">tupian</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/07/my-first-blog/" title="我爱伍雪仪">我爱伍雪仪</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/09/%E7%88%B1%E5%BF%83/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
     <span><a href="/2023/01/09/%E5%9B%BE%E7%89%87/" title="图片">图片</a></span>
   </li>
 
@@ -395,7 +407,16 @@ ZPY = zhu</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/01/10/%E5%AD%97%E7%AC%A6%E8%BD%AC%E5%8C%96%E4%B8%BAurl%E5%80%BC/" title="字符转化为url值">字符转化为url值</a></span>
+    <span><a href="/2023/01/07/%E5%8D%9A%E5%AE%A2%E5%90%8D%E5%AD%97/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E5%89%8D20%E9%A2%98%EF%BC%88%E5%BC%95%E5%AF%BC%E6%A8%A1%E5%BC%8F%EF%BC%89/" title="攻防世界web前10题（引导模式）">攻防世界web前10题（引导模式）</a></span>
   </li>
 
   </ul>
